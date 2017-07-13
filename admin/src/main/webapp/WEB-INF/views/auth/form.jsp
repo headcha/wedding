@@ -1,0 +1,90 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- breadcrumb start -->
+<!-- ================ -->
+<div class="breadcrumb-container">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+            <li class="active">Page Login</li>
+        </ol>
+    </div>
+</div>
+<!-- breadcrumb end -->
+
+<!-- main-container start -->
+<!-- ================ -->
+<div class="main-container dark-translucent-bg" style="background-image:url('/${buildTimestamp}/resources/lib/bootstrap/html/template/images/background-img-6.jpg');">
+    <div class="container">
+        <div class="row">
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
+                <div class="form-block center-block p-30 light-gray-bg border-clear">
+                    <h2 class="title">Login</h2>
+                    <form class="form-horizontal" action="/auth/process" method="post">
+                        <div class="form-group has-feedback">
+                            <label for="inputUserName" class="col-sm-3 control-label">User Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputUserName" placeholder="User Name" name="id" required>
+                                <i class="fa fa-user form-control-feedback"></i>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="password" required>
+                                <i class="fa fa-lock form-control-feedback"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" required> Remember me.
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-group btn-default btn-animated">Log In <i class="fa fa-user"></i></button>
+                                <ul class="space-top">
+                                    <li><a href="#">Forgot your password?</a></li>
+                                </ul>
+                                <span class="text-center text-muted">Login with</span>
+                                <ul class="social-links colored circle clearfix">
+                                    <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <p class="text-center space-top">Don't have an account yet? <a href="page-signup.html">Sing up</a> now.</p>
+            </div>
+            <!-- main end -->
+        </div>
+    </div>
+</div>
+<!-- main-container end -->
+
+<!-- footer top start -->
+<!-- ================ -->
+<div class="dark-bg  default-hovered footer-top animated-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="call-to-action text-center">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h2>Powerful Bootstrap Template</h2>
+                            <h2>Waste no more time</h2>
+                        </div>
+                        <div class="col-sm-4">
+                            <p class="mt-10"><a href="#" class="btn btn-animated btn-lg btn-gray-transparent ">Purchase<i class="fa fa-cart-arrow-down pl-20"></i></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer top end -->

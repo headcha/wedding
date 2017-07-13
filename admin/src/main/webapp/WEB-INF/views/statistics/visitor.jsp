@@ -1,0 +1,98 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<div class="banner light-translucent-bg" style="background-image:url('${wedding.imageUrl}'); background-position: 50% 30%;">
+    <!-- breadcrumb end -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 text-center col-md-offset-2 pv-20">
+                <h2 class="title"> 통계 </h2>
+                <div class="separator mt-10"></div>
+                <p>10월 5일에 생성한 초대장 </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+    <div class="container">
+        <div class="row">
+
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main col-md-8">
+
+                <!-- page-title start -->
+                <!-- ================ -->
+                <h1 class="page-title">통계</h1>
+                <div class="separator-2"></div>
+                <!-- page-title end -->
+
+                <!-- Charts start -->
+                <!-- ============================================================================== -->
+
+                <br>
+                <div>
+                    <h2>축의금</h2>
+                    <canvas  id="bar-graph"></canvas>
+                    <br>
+                </div>
+            </div>
+            <!-- main end -->
+
+            <!-- sidebar start -->
+            <!-- ================ -->
+            <aside class="col-md-4 col-lg-3 col-lg-offset-1">
+                <div class="sidebar">
+                    <div class="block clearfix">
+                        <h3 class="title">메뉴</h3>
+                        <div class="separator-2"></div>
+                        <nav>
+                            <ul class="nav nav-pills nav-stacked list-style-icons">
+                                <li ><a href="components-social-icons.html"><i class="icon-share"></i>방문 통계</a></li>
+                                <li ><a href="components-buttons.html"><i class="icon-flask"></i>공유 통계</a></li>
+                                <li ><a href="components-forms.html"><i class="icon-eq"></i>축의금 통계</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+            <!-- sidebar end -->
+
+        </div>
+    </div>
+</section>
+<!-- main-container end -->
+<content tag="local_script">
+<script type="text/javascript">
+    // Data for bar charts
+    var randomScalingFactor = function(){ return Math.round(Math.random()*500)};
+
+
+
+    var barChartData = {
+        labels : ["January","February","March","April","May","June","July"],
+        datasets : [
+            {
+                fillColor : "rgba(188,188,188,0.5)",
+                strokeColor : "rgba(188,188,188,0.8)",
+                highlightFill: "rgba(188,188,188,0.75)",
+                highlightStroke: "rgba(188,188,188,1)",
+                data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+            }
+        ]
+    }
+
+    // Bar Charts Initialization
+    $(window).load(function() {
+        var ctx = document.getElementById("bar-graph").getContext("2d");
+        window.myBar = new Chart(ctx).Bar(barChartData, {
+            responsive : true
+        });
+    });
+
+</script>
+</content>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/WEB-INF/views/layout">
+    <excludes>
+        <pattern>/api/**/*</pattern>
+        <pattern>/resources/**/*</pattern>
+        <pattern>/*.html</pattern>
+        <pattern>/invitation/wedding/preview/*</pattern>
+    </excludes>
+
+    <decorator name="layout" page="layout.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>
