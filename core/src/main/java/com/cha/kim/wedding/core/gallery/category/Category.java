@@ -2,7 +2,6 @@ package com.cha.kim.wedding.core.gallery.category;
 
 import com.cha.kim.wedding.core.gallery.Gallery;
 import com.cha.kim.wedding.core.gallery.image.GalleryImage;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,7 +25,6 @@ public class Category {
     @OneToMany (mappedBy = "category" , cascade = CascadeType.ALL , orphanRemoval = true)
     private List<GalleryImage> galleryImages = new ArrayList<>();
 
-    @JsonIgnore
     @ManyToOne(optional = false , fetch = FetchType.LAZY)
     @JoinColumn(name = "galleryId" , referencedColumnName = "id")
     private Gallery gallery;

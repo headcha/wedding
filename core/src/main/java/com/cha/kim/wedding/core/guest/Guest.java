@@ -1,7 +1,6 @@
 package com.cha.kim.wedding.core.guest;
 
 import com.cha.kim.wedding.core.gift.Gift;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,7 +32,6 @@ public class Guest {
     @Column(length = 100)
     private String sessionId;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "giftId" , referencedColumnName = "id")
     private Gift gift;

@@ -2,7 +2,6 @@ package com.cha.kim.wedding.core.gallery;
 
 import com.cha.kim.wedding.core.gallery.category.Category;
 import com.cha.kim.wedding.core.invitation.wedding.Wedding;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,7 +21,6 @@ public class Gallery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @JsonIgnore
     @OneToOne(optional = false )
     @JoinColumn(name = "weddingId" , referencedColumnName = "id")
     private Wedding wedding;

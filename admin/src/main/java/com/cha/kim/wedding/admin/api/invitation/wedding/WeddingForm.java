@@ -8,7 +8,6 @@ import com.cha.kim.wedding.admin.api.gift.GiftForm;
 import com.cha.kim.wedding.admin.api.schedule.ScheduleForm;
 import com.cha.kim.wedding.admin.api.story.StoryForm;
 import com.cha.kim.wedding.core.account.Account;
-import com.cha.kim.wedding.core.gift.Gift;
 import com.cha.kim.wedding.core.invitation.wedding.Wedding;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;

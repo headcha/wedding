@@ -22,15 +22,5 @@ public class DisplayInvitation {
     private long sumFundingAmount;
     private long allShareCount;
     private long allGuestCount;
-    public double shareCountRate(long invitationShareCount) {
-        return ((double) invitationShareCount / (double) allShareCount) * 100;
-    }
 
-    public double visitorCountRate(long invitationVisitorCount) {
-        return ((double) invitationVisitorCount / (double) allVisitorCount) * 100;
-    }
-
-    public double guestCountRate(long invitationGuestCount) {
-        return ((double) invitationGuestCount / (double) allGuestCount) * 100;
-    }
 }

@@ -21,6 +21,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
 	private AuthSecurityService authSecurityService;
+
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		String id = authentication.getName();

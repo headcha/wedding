@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,8 +30,7 @@ public class InvitationWeddingController {
     @Autowired
     private AccountContext accountContext;
 
-    @Secured({Authority.USER})
-    @RequestMapping(method = RequestMethod.GET , value = "{id}")
+    @GetMapping("/{id}")
     public String form(@PathVariable int id ,  Model model) {
         Wedding wedding = weddingService.findOneByIdAndAccountId(id , accountContext.getLoggedAccount().getId());
 
@@ -38,10 +38,9 @@ public class InvitationWeddingController {
             return "error/404";
 
         model.addAttribute("wedding" , DisplayWedding.create(wedding));
-        return "invitation/remind/index";
+        return "invitation/wedding/index";
     }
 
-    @Secured({Authority.USER})
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET} , value = "/preview/{skinName}")
     public String preview(String previewJsonValue, @PathVariable String skinName, Model model) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();

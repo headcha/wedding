@@ -1,8 +1,7 @@
 package com.cha.kim.wedding.admin.api.exceptionHandler;
 
-import lombok.Getter;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
 
 /**
  * Created by 1002610 on 2016. 3. 3..

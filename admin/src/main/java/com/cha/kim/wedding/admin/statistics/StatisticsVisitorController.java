@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/statistics/visitor")
-@Secured({Authority.USER})
 public class StatisticsVisitorController {
     @Autowired
     private WeddingService weddingService;

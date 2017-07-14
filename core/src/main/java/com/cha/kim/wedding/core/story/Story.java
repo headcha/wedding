@@ -1,7 +1,6 @@
 package com.cha.kim.wedding.core.story;
 
 import com.cha.kim.wedding.core.invitation.wedding.Wedding;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -46,7 +45,6 @@ public class Story {
     @Column(insertable = false)
     private Date updateAt;
 
-    @JsonIgnore
     @ManyToOne (optional = false)
     @JoinColumn(name = "weddingId", nullable = false)
     private Wedding wedding;

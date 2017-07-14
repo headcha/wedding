@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,16 +39,10 @@ public class InvitationController {
     @Autowired
     private ShareService shareService;
 
-    @Autowired
-    private GuestService guestService;
-
-    @Secured({Authority.USER})
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public String form(Model model) {
 
-        List<DisplayWedding> displayWeddings = CollectionConverter
-                                                .getInstance()
-                                                .convert(adminContext.getLoggedAccount().getWeddings(), DisplayWedding.class, "create");
+        List<DisplayWedding> displayWeddings = CollectionConverter.getInstance().convert(adminContext.getLoggedAccount().getWeddings(), DisplayWedding.class, "create");
 
         for (DisplayWedding wedding : displayWeddings) {
             wedding.setAllVisitorCount(visitorService.countByWeddingId(wedding.getId()));
@@ -55,14 +50,14 @@ public class InvitationController {
         }
 
         DisplayInvitation displayInvitation = DisplayInvitation.builder()
-                                                .weddings(displayWeddings)
-                                                .allInvitationCount(weddingService.count())
-                                                .allVisitorCount(visitorService.count())
-                                                .allAccountCount(accountService.count())
-                                                .allShareCount(shareService.count())
-                                            .build();
+                .weddings(displayWeddings)
+                .allInvitationCount(weddingService.count())
+                .allVisitorCount(visitorService.count())
+                .allAccountCount(accountService.count())
+                .allShareCount(shareService.count())
+                .build();
 
-        model.addAttribute("invitation" , displayInvitation);
+        model.addAttribute("invitation", displayInvitation);
 
         return "invitation/index";
     }

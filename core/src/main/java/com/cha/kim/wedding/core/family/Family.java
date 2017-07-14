@@ -1,7 +1,6 @@
 package com.cha.kim.wedding.core.family;
 
 import com.cha.kim.wedding.core.invitation.wedding.Wedding;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,7 +32,6 @@ public class Family {
     @Column(length = 5000)
     private String letter;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "weddingId" , referencedColumnName = "id")
     private Wedding wedding;

@@ -4,8 +4,6 @@ import org.junit.Test;
 
 import java.text.NumberFormat;
 
-import static org.testng.Assert.*;
-
 /**
  * Created by headcha on 2016-10-05.
  */

@@ -2,7 +2,6 @@ package com.cha.kim.wedding.core.schedule;
 
 
 import com.cha.kim.wedding.core.invitation.wedding.Wedding;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,7 +28,6 @@ public class Schedule {
 
     @Column(length = 255)
     private String imageUrl;
-    @JsonIgnore
     @ManyToOne (optional = false)
     @JoinColumn(name = "weddingId", nullable = false)
     private Wedding wedding;

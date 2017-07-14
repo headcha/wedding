@@ -1,20 +1,16 @@
 package com.cha.kim.wedding.admin.api.invitation.wedding;
 
-import com.cha.kim.wedding.admin.api.exceptionHandler.ApiErrorMessage;
 import com.cha.kim.wedding.admin.api.exceptionHandler.exception.ApplicationException;
-import com.cha.kim.wedding.admin.auth.Authority;
 import com.cha.kim.wedding.admin.context.AccountContext;
 import com.cha.kim.wedding.core.invitation.wedding.Wedding;
 import com.cha.kim.wedding.core.invitation.wedding.WeddingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/invitation/wedding")
-@Secured({Authority.USER})
 public class WeddingApiController {
 
     @Autowired

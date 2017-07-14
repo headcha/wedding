@@ -1,7 +1,6 @@
 package com.cha.kim.wedding.core.util.sms;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 

@@ -1,21 +1,21 @@
 package com.cha.kim.wedding.admin.api.file;
 
-import com.cha.kim.wedding.admin.auth.Authority;
 import com.cha.kim.wedding.core.util.MimeTypeUtil;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/file/")
-@Secured({Authority.USER})
 public class FileApiController {
     @Value("${admin.file.temp.uploadPath}")
     private String tempFileUploadPath;

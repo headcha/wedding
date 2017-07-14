@@ -1,13 +1,11 @@
 package com.cha.kim.wedding.core.share;
 
 import com.cha.kim.wedding.core.invitation.wedding.Wedding;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.test.annotation.Commit;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -34,7 +32,6 @@ public class Share {
     @Column(nullable = false)
     private SnsType snsType;
 
-    @JsonIgnore
     @ManyToOne(optional = false , fetch = FetchType.LAZY)
     @JoinColumn(name = "weddingId" , referencedColumnName = "id" , nullable = false)
     private Wedding wedding;

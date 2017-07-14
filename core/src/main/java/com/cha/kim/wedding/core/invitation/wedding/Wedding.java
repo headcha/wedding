@@ -9,7 +9,6 @@ import com.cha.kim.wedding.core.schedule.Schedule;
 import com.cha.kim.wedding.core.share.Share;
 import com.cha.kim.wedding.core.story.Story;
 import com.cha.kim.wedding.core.visit.Visitor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -103,7 +102,6 @@ public class Wedding {
     @OneToMany(mappedBy = "wedding" , cascade = CascadeType.ALL , orphanRemoval = true)
     private List<Gift> gifts = new ArrayList<>();
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "accountId" , referencedColumnName = "id")
     private Account account = new Account();

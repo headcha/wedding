@@ -2,7 +2,6 @@ package com.cha.kim.wedding.core.gift;
 
 import com.cha.kim.wedding.core.guest.Guest;
 import com.cha.kim.wedding.core.invitation.wedding.Wedding;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,7 +33,6 @@ public class Gift {
     @Column(length = 20)
     private String name;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "weddingId" , referencedColumnName = "id")
     private Wedding wedding = new Wedding();
@@ -52,7 +50,6 @@ public class Gift {
     @Column(insertable = false)
     private Date updateDate;
 
-    @JsonIgnore
     public int getGuestsSize() {
         if (this.getGuests() == null)
             return 0;
@@ -60,7 +57,6 @@ public class Gift {
         return this.getGuests().size();
     }
 
-    @JsonIgnore
     public double getAmountGuestPriceRate() {
         double amountGuestPriceRate = (double)getAmountGuestPrice() / (double)getPrice() * 100.0 ;
 
@@ -70,7 +66,6 @@ public class Gift {
         return amountGuestPriceRate;
     }
 
-    @JsonIgnore
     public String getFormatAmountGuestPrice() {
         return NumberFormat.getInstance().format(getAmountGuestPrice());
     }

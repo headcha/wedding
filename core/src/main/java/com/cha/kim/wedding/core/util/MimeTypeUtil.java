@@ -1,17 +1,17 @@
 package com.cha.kim.wedding.core.util;
 
 
-import org.apache.commons.collections.map.HashedMap;
 import org.apache.tika.Tika;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.Map;
 
 public class MimeTypeUtil {
     private MimeTypeUtil(){}
 
-    private static final Map<String , String> IMAGE_MIME_TYPE = new HashedMap();
+    private static final Map<String , String> IMAGE_MIME_TYPE = new HashMap<>();
 
     static {
         IMAGE_MIME_TYPE.put("image/bmp" , "image/bmp");
