@@ -1,11 +1,9 @@
 package com.cha.kim.wedding.web.wedding;
 
-import com.cha.kim.wedding.core.account.AccountService;
 import com.cha.kim.wedding.core.gift.Gift;
 import com.cha.kim.wedding.core.gift.GiftService;
 import com.cha.kim.wedding.core.invitation.wedding.Wedding;
 import com.cha.kim.wedding.core.invitation.wedding.WeddingService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
