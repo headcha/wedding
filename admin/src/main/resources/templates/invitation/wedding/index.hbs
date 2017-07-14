@@ -553,8 +553,184 @@
 
 
 </div>
+
+
+<script id="category_item_template" type="text/x-handlebars-template">
+    <tr class="category_area">
+        <td>
+            <input class="category_id" name="categoryId" type="hidden" value="0">
+            <input type="text" name="galleryCategoryName" class="form-control gallery_category_name" required>
+        </td>
+        <td>
+            <div class="row">
+                <div class="col-xs-12 wrap_gallery_area">
+                    <!-- PAGE CONTENT BEGINS -->
+                    <ul class="gallery_area ace-thumbnails clearfix"style="list-style: none;">
+                        <li class="col-xs-2 gallery_image" style="border: none;">
+
+
+                            <div class="slim"
+                                 data-service="/api/file/image"
+                                 data-did-upload="attachGalleryImage"
+                                 data-did-remove="removeGalleryImage"
+                                 data-size="1920,1080"
+                            >
+
+                                <input type="file" name="image" />
+                            </div>
+
+                            <input class="gallery_image_id" name="galleryImageId" type="hidden" >
+                            <input class="gallery_image_url" name="galleryImageUrl" type="hidden">
+                        </li>
+                    </ul>
+                    <button type="button" class="btn radius-50 btn-default-transparent _btn_add_gallery_image">+</button>
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <button type="button" class="btn btn_delete_category btn-sm">삭제</button>
+        </td>
+    </tr>
+</script>
+
+
+
+<script id="gallery_image_item_template" type="text/x-handlebars-template">
+    <li class="col-xs-2 gallery_image" style="border: none;">
+        <div class="slim"
+             data-service="/api/file/image"
+             data-did-upload="attachGalleryImage"
+             data-did-remove="removeGalleryImage"
+             data-ratio="16:9"
+             data-size="1920,1080"
+        >
+
+            <input type="file" name="image" />
+        </div>
+
+        <input class="gallery_image_id" name="galleryImageId" type="hidden" >
+        <input class="gallery_image_url" name="galleryImageUrl" type="hidden">
+    </li>
+</script>
+
+
+
+<script id="schedule_item_template" type="text/x-handlebars-template">
+    <tr class="schedule_item">
+        <td>
+            <input class="form-control schedule_id" name="scheduleId" type="hidden" value="0" required>
+        </td>
+        <td>
+            <input class="form-control schedule_title" name="scheduleTitle" type="text" value="" required>
+        </td>
+        <td>
+            <input class="form-control schedule_introduction" name="scheduleIntroduction" type="text" value="">
+        </td>
+        <td class="row schedule_image_area">
+            <div class="slim"
+                 data-service="/api/file/image"
+                 data-did-upload="attachScheduleImage"
+                 data-did-remove="removeScheduleImage"
+                 data-ratio="16:9"
+                 data-size="1920,1080"
+            >
+                <input type="file" name="image" />
+            </div>
+            <input class="schedule_image_url" type="hidden" name="scheduleImageUrl" value="">
+        </td>
+        <td>
+            <div class='input-group date-pick dateTimePicker'>
+                <input type='text' class="form-control schedule_dateTime" name="scheduleDateTime" placeholder="YYYY-MM-DD HH:MM" required/>
+                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+            </div>
+        </td>
+        <td>
+            <button type="button" class="btn btn_delete_schedule btn-sm">삭제</button>
+        </td>
+    </tr>
+</script>
+
+
+<script id="story_item_template" type="text/x-handlebars-template">
+    <tr class="story_item">
+        <td>
+            <input class="form-control story_id" name="storyId" type="hidden" value="0">
+        </td>
+        <td>
+            <input class="form-control story_order_index" name="storyOrderIndex" type="number">
+        </td>
+        <td>
+            <input class="form-control story_title" name="storyTitle" type="text" value="" required>
+        </td>
+        <td>
+            <textarea class="form-control story_description" rows="7" name="storyDescription"></textarea>
+        </td>
+        <td class="row story_image_area">
+            <div class="slim"
+                 data-service="/api/file/image"
+                 data-did-upload="attachStoryImage"
+                 data-did-remove="removeStoryImage"
+                 data-ratio="16:9"
+                 data-size="1920,1080"
+            >
+                <input type="file" name="image" />
+            </div>
+            <input class="story_image_url" type="hidden" name="storyImageUrl" value="">
+        </td>
+        <td>
+            <div class='input-group date-pick dateTimePicker'>
+                <input type='text' class="form-control story_storyDate" name="storyDate" placeholder="YYYY-MM-DD HH:MM" />
+                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+            </div>
+        </td>
+        <td>
+            <button type="button" class="btn btn_delete_story btn-sm">삭제</button>
+        </td>
+    </tr>
+</script>
+
+
+
+<script id="gift_item_template" type="text/x-handlebars-template">
+    <tr class="gift_item">
+        <td>
+            <input class="form-control gift_id" name="giftId" type="hidden" value="0" required>
+        </td>
+        <td>
+            <input class="form-control gift_name" name="giftName" type="text" value="" required>
+        </td>
+        <td>
+            받고 싶은 선물을 등록하세요
+        </td>
+        <td class="row gift_image_area">
+            <div class="slim"
+                 data-service="/api/file/image"
+                 data-did-upload="attachGiftImage"
+                 data-did-remove="removeGiftImage"
+                 data-size="1920,1080"
+            >
+
+                <input type="file" name="image" />
+            </div>
+            <input class="gift_image_url" type="hidden" name="giftImageUrl">
+        </td>
+
+
+        <td>
+            <input class="form-control gift_price" name="giftPrice" type="text" value="" required>
+        </td>
+        <td>
+            <button type="button" class="btn btn_delete_gift btn-sm">삭제</button>
+        </td>
+    </tr>
+</script>
 {{/partial}}
-<content tag="local_script">
+{{#partial "script"}}
 
 
     <!-- image -->
@@ -815,181 +991,7 @@
 
 
     </script>
-</content>
+{{/partial}}
 
-<script id="category_item_template" type="text/x-handlebars-template">
-    <tr class="category_area">
-        <td>
-            <input class="category_id" name="categoryId" type="hidden" value="0">
-            <input type="text" name="galleryCategoryName" class="form-control gallery_category_name" required>
-        </td>
-        <td>
-            <div class="row">
-                <div class="col-xs-12 wrap_gallery_area">
-                    <!-- PAGE CONTENT BEGINS -->
-                    <ul class="gallery_area ace-thumbnails clearfix"style="list-style: none;">
-                        <li class="col-xs-2 gallery_image" style="border: none;">
-
-
-                            <div class="slim"
-                                 data-service="/api/file/image"
-                                 data-did-upload="attachGalleryImage"
-                                 data-did-remove="removeGalleryImage"
-                                 data-size="1920,1080"
-                                 >
-
-                                <input type="file" name="image" />
-                            </div>
-
-                            <input class="gallery_image_id" name="galleryImageId" type="hidden" >
-                            <input class="gallery_image_url" name="galleryImageUrl" type="hidden">
-                        </li>
-                    </ul>
-                    <button type="button" class="btn radius-50 btn-default-transparent _btn_add_gallery_image">+</button>
-                </div>
-            </div>
-
-        </td>
-        <td>
-            <button type="button" class="btn btn_delete_category btn-sm">삭제</button>
-        </td>
-    </tr>
-</script>
-
-
-
-<script id="gallery_image_item_template" type="text/x-handlebars-template">
-    <li class="col-xs-2 gallery_image" style="border: none;">
-        <div class="slim"
-             data-service="/api/file/image"
-             data-did-upload="attachGalleryImage"
-             data-did-remove="removeGalleryImage"
-             data-ratio="16:9"
-             data-size="1920,1080"
-             >
-
-            <input type="file" name="image" />
-        </div>
-
-        <input class="gallery_image_id" name="galleryImageId" type="hidden" >
-        <input class="gallery_image_url" name="galleryImageUrl" type="hidden">
-    </li>
-</script>
-
-
-
-<script id="schedule_item_template" type="text/x-handlebars-template">
-    <tr class="schedule_item">
-        <td>
-            <input class="form-control schedule_id" name="scheduleId" type="hidden" value="0" required>
-        </td>
-        <td>
-            <input class="form-control schedule_title" name="scheduleTitle" type="text" value="" required>
-        </td>
-        <td>
-            <input class="form-control schedule_introduction" name="scheduleIntroduction" type="text" value="">
-        </td>
-        <td class="row schedule_image_area">
-            <div class="slim"
-                 data-service="/api/file/image"
-                 data-did-upload="attachScheduleImage"
-                 data-did-remove="removeScheduleImage"
-                 data-ratio="16:9"
-                 data-size="1920,1080"
-                 >
-                <input type="file" name="image" />
-            </div>
-            <input class="schedule_image_url" type="hidden" name="scheduleImageUrl" value="">
-        </td>
-        <td>
-            <div class='input-group date-pick dateTimePicker'>
-                <input type='text' class="form-control schedule_dateTime" name="scheduleDateTime" placeholder="YYYY-MM-DD HH:MM" required/>
-                <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-            </div>
-        </td>
-        <td>
-            <button type="button" class="btn btn_delete_schedule btn-sm">삭제</button>
-        </td>
-    </tr>
-</script>
-
-
-<script id="story_item_template" type="text/x-handlebars-template">
-    <tr class="story_item">
-        <td>
-            <input class="form-control story_id" name="storyId" type="hidden" value="0">
-        </td>
-        <td>
-            <input class="form-control story_order_index" name="storyOrderIndex" type="number">
-        </td>
-        <td>
-            <input class="form-control story_title" name="storyTitle" type="text" value="" required>
-        </td>
-        <td>
-            <textarea class="form-control story_description" rows="7" name="storyDescription"></textarea>
-        </td>
-        <td class="row story_image_area">
-            <div class="slim"
-                 data-service="/api/file/image"
-                 data-did-upload="attachStoryImage"
-                 data-did-remove="removeStoryImage"
-                 data-ratio="16:9"
-                 data-size="1920,1080"
-                 >
-                <input type="file" name="image" />
-            </div>
-            <input class="story_image_url" type="hidden" name="storyImageUrl" value="">
-        </td>
-        <td>
-            <div class='input-group date-pick dateTimePicker'>
-                <input type='text' class="form-control story_storyDate" name="storyDate" placeholder="YYYY-MM-DD HH:MM" />
-                <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-            </div>
-        </td>
-        <td>
-            <button type="button" class="btn btn_delete_story btn-sm">삭제</button>
-        </td>
-    </tr>
-</script>
-
-
-
-<script id="gift_item_template" type="text/x-handlebars-template">
-    <tr class="gift_item">
-        <td>
-            <input class="form-control gift_id" name="giftId" type="hidden" value="0" required>
-        </td>
-        <td>
-            <input class="form-control gift_name" name="giftName" type="text" value="" required>
-        </td>
-        <td>
-            받고 싶은 선물을 등록하세요
-        </td>
-        <td class="row gift_image_area">
-            <div class="slim"
-                 data-service="/api/file/image"
-                 data-did-upload="attachGiftImage"
-                 data-did-remove="removeGiftImage"
-                 data-size="1920,1080"
-            >
-
-                <input type="file" name="image" />
-            </div>
-            <input class="gift_image_url" type="hidden" name="giftImageUrl">
-        </td>
-
-
-        <td>
-            <input class="form-control gift_price" name="giftPrice" type="text" value="" required>
-        </td>
-        <td>
-            <button type="button" class="btn btn_delete_gift btn-sm">삭제</button>
-        </td>
-    </tr>
-</script>
 
 {{> layout/base}}

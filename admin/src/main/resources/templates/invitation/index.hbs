@@ -134,51 +134,52 @@
     </div>
 </section>
 <!-- section end -->
-<content tag="local_script">
-<script src="/js/gallery/Gallery.js"></script>
-<script src="/js/funding/Funding.js"></script>
-<script src="/js/invitation/wedding/Wedding.js"></script>
-<script src="/js/invitation/wedding/WeddingRepository.js"></script>
-<script type="text/javascript">
-    $('#btn_create_invitation').on('click' , function() {
-       var wedding = Wedding.createByUrl($('#invitationUrl').val());
-        WeddingRepository.create(wedding
-        , function(result) {
-            location.href="/invitation/wedding/" + result.url;
-        }
-        , function(response , error , status ) {
-            $('#errorMessage').text(response.responseJSON.message).show();
-        });
-    });
 
-    $('.chk_enableInvitation').on('switchChange.bootstrapSwitch' , function(event, state) {
-        var id = $(this).attr('data-invitation-id');
-        var wedding = Wedding.createByEnable(id , state);
-        WeddingRepository.updateEnable(wedding, function(result) {
-            bootbox.alert('변경 되었습니다.');
-        });
-    });
-
-    $('.btn_deleteInvitation').on('click' , function(event) {
-        var id = $(this).attr('data-invitation-id');
-        var $invitationItem = $(this).parents('.invitationItem');
-        bootbox.confirm("삭제 하시겠습니까?", function(result) {
-            if (result) {
-                WeddingRepository.delete(id, function(data) {
-                    $invitationItem.animateCss('bounceOutLeft' , function() {
-                        $invitationItem.remove();
+{{/partial}}
+{{#partial "script"}}
+    <script src="/js/gallery/Gallery.js"></script>
+    <script src="/js/funding/Funding.js"></script>
+    <script src="/js/invitation/wedding/Wedding.js"></script>
+    <script src="/js/invitation/wedding/WeddingRepository.js"></script>
+    <script type="text/javascript">
+        $('#btn_create_invitation').on('click' , function() {
+            var wedding = Wedding.createByUrl($('#invitationUrl').val());
+            WeddingRepository.create(wedding
+                    , function(result) {
+                        location.href="/invitation/wedding/" + result.url;
+                    }
+                    , function(response , error , status ) {
+                        $('#errorMessage').text(response.responseJSON.message).show();
                     });
-                });
-            }
         });
-    });
 
-    $('.btn_copyUrl').on('click' , function(event) {
-        var url = $(this).attr('data-invitation-url');
+        $('.chk_enableInvitation').on('switchChange.bootstrapSwitch' , function(event, state) {
+            var id = $(this).attr('data-invitation-id');
+            var wedding = Wedding.createByEnable(id , state);
+            WeddingRepository.updateEnable(wedding, function(result) {
+                bootbox.alert('변경 되었습니다.');
+            });
+        });
 
-        //TODO clipboard 에 url 복사
-    });
-</script>
-</content>
+        $('.btn_deleteInvitation').on('click' , function(event) {
+            var id = $(this).attr('data-invitation-id');
+            var $invitationItem = $(this).parents('.invitationItem');
+            bootbox.confirm("삭제 하시겠습니까?", function(result) {
+                if (result) {
+                    WeddingRepository.delete(id, function(data) {
+                        $invitationItem.animateCss('bounceOutLeft' , function() {
+                            $invitationItem.remove();
+                        });
+                    });
+                }
+            });
+        });
+
+        $('.btn_copyUrl').on('click' , function(event) {
+            var url = $(this).attr('data-invitation-url');
+
+            //TODO clipboard 에 url 복사
+        });
+    </script>
 {{/partial}}
 {{> layout/base}}

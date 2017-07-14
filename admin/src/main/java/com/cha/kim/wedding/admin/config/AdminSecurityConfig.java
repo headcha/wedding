@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
+@EnableWebSecurity
 public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
@@ -21,7 +22,8 @@ public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
                 .authorizeRequests()
 					.antMatchers("/","/lib/**", "/**/**.js",  "/**/**.css", "/**.ico" ,"/**/**.map", "/**.html" , "/webjars/**" , "/swagger-resources/**" , "/v2/api-docs/**", "/configuration/**", "/images/**", "/resources/**").permitAll()
-                	.anyRequest()
+                	.antMatchers("/account/signup").permitAll()
+				.anyRequest()
 					.authenticated()
                 .and().authenticationProvider(customAuthenticationProvider())
                 .formLogin()

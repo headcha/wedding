@@ -1,7 +1,7 @@
-
+{{#partial "content"}}
 <!-- main-container start -->
 <!-- ================ -->
-<div class="main-container dark-translucent-bg" style="background-image:url('/${buildTimestamp}/resources/lib/bootstrap/html/template/images/background-img-6.jpg');">
+<div class="main-container dark-translucent-bg" style="background-image:url('/lib/bootstrap/html/template/images/background-img-6.jpg');">
     <div class="container">
         <div class="row">
             <!-- main start -->
@@ -72,10 +72,11 @@
         </div>
     </div>
 </div>
-<content tag="local_script">
+{{/partial}}
+{{#partial "script"}}
 
-<script src="/resources/js/account/Account.js"></script>
-<script src="/resources/js/account/AccountRepository.js"></script>
+<script src="/js/account/Account.js"></script>
+<script src="/js/account/AccountRepository.js"></script>
 <script type="text/javascript">
     $('#accountForm').validator().on('submit', function (event) {
 
@@ -103,4 +104,5 @@
         return false;
     });
 </script>
-</content>
+{{/partial}}
+{{> layout/base}}

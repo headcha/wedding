@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+
 interface WeddingRepository extends JpaRepository<Wedding, Integer> {
     Wedding findOneByUrl(String url);
 

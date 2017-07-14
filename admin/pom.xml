@@ -3,10 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.2.RELEASE</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <groupId>com.cha.kim.wedding</groupId>
+        <artifactId>wedding</artifactId>
+        <version>1.0.0.release</version>
     </parent>
 
     <groupId>com.cha.kim.wedding.admin</groupId>
@@ -73,9 +72,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-
-
-
 
         <!-- xss -->
         <dependency>
@@ -164,6 +160,7 @@
         </dependency>
 
 
+
         <!-- swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -171,11 +168,14 @@
             <version>2.6.1</version>
         </dependency>
 
+
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.6.1</version>
         </dependency>
+
+
 
         <!-- Test -->
 
@@ -230,6 +230,21 @@
                     </execution>
                 </executions>
 
+            </plugin>
+
+            <plugin>
+                <groupId>org.zeroturnaround</groupId>
+                <artifactId>jrebel-maven-plugin</artifactId>
+                <version>1.1.6</version>
+                <executions>
+                    <execution>
+                        <id>generate-rebel-xml</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
