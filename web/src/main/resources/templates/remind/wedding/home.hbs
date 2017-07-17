@@ -375,9 +375,9 @@
                     <div class="col-sm-6 col-md-3 isotope-item {{category.name}}">
                         <div class="image-box text-center">
                             <div class="overlay-container overlay-visible">
-                                <img src="{{galleryImage.url}?fit=crop&w=480&h=300&crop=entropy"
-                                     alt="{{galleryImage.category.name}">
-                                <a href="{{galleryImage.url}?fit=crop&w=750&h=464&crop=entropy"
+                                <img src="{{url}}?fit=crop&w=480&h=300&crop=entropy"
+                                     alt="{{category.name}}">
+                                <a href="{{url}}?fit=crop&w=750&h=464&crop=entropy"
                                    class="popup-img overlay-link"><i class="fa fa-plus"></i></a>
                             </div>
                         </div>
@@ -410,7 +410,7 @@
                                     <span class="icon default-bg large circle"><i id="ico_letter" class="fa fa-envelope animated infinite bounce"></i></span>
                                     <h3>Read Me.</h3>
                                     <div class="separator clearfix"></div>
-                                    <p>{{wedding.male.name}&{{wedding.female.name}님에게<br>
+                                    <p>{{wedding.male.name}}&{{wedding.female.name}}님에게<br>
                                         전달된 메세지가 있습니다.<br><br>
                                         지금 확인해 보세요.
                                     </p>
@@ -467,16 +467,16 @@
             <div class="modal-body ">
 
                 <div class="owl-carousel content-slider-with-controls-autoplay-hover-stop">
-                    <c:forEach items="{{wedding.familyList}" var="family" varStatus="status">
+                        {{#each wedding.familyList}}
                         <div>
-                            <h4 class="title text-default text-center">{{family.name}님</h4>
+                            <h4 class="title text-default text-center">{{family.name}}님</h4>
 
                             <div class="mt-10 separator-2"></div>
                             <p>
-                                {{family.letter}
+                                {{family.letter}}
                             </p>
                         </div>
-                    </c:forEach>
+                        {{/each}}
                 </div>
             </div>
             <div class="text-center">
@@ -564,7 +564,7 @@
     SessionUser.createSessionCookie();
 
 
-    VisitorRepository.add(new Visitor({{wedding.id}));
+    VisitorRepository.add(new Visitor({{wedding.id}}));
 
     imgix.onready(function () {
         imgix.fluid({
@@ -576,7 +576,7 @@
     });
 
 
-    var localDate = new Date('<fmt:formatDate value="{{wedding.weddingDate}" pattern="yyyy-MM-dd'T'HH:mm"/>');
+    var localDate = new Date('{{formatDate wedding.weddingDate pattern="yyyy-MM-dd'T'HH:mm"}}' );
     var utc = localDate.getTime() + (localDate.getTimezoneOffset() * 60000);
     var untilDate = new Date(utc);
 
@@ -586,8 +586,8 @@
         since: untilDate
     });
 
-    var dummyOG_Title = '{{wedding.male.name} & {{wedding.female.name} 결혼기념일을 축하합니다.';
-    var dummyOG_image = '{{wedding.imageUrl}';
+    var dummyOG_Title = '{{wedding.male.name}} & {{wedding.female.name}} 결혼기념일을 축하합니다.';
+    var dummyOG_image = '{{wedding.imageUrl}}';
     var dummy_webLinkTitle = location.href;
 
     if (false == isMobile()) {
@@ -601,17 +601,17 @@
 
     $("._btn_share_kakao").on('click', function () {
         kakao.sendLink(dummyOG_Title, dummyOG_image, dummy_webLinkTitle);
-        ShareRepository.add(new Share({{wedding.id}, "KAKAO_TALK"));
+        ShareRepository.add(new Share({{wedding.id}}, "KAKAO_TALK"));
     });
 
     $("._btn_share_kakaostory").on('click', function () {
         kakao.shareStory(dummyOG_Title);
-        ShareRepository.add(new Share({{wedding.id}, "KAKAO_STORY"));
+        ShareRepository.add(new Share({{wedding.id}}, "KAKAO_STORY"));
     });
     var facebook = new facebook();
     $("._btn_share_facebook").on('click', function () {
         window.open("https://www.facebook.com/sharer/sharer.php?u=" + location.href);
-        ShareRepository.add(new Share({{wedding.id}, "FACEBOOK"));
+        ShareRepository.add(new Share({{wedding.id}}, "FACEBOOK"));
     });
 
     function isMobile() {
