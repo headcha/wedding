@@ -5,6 +5,7 @@ import com.cha.kim.wedding.web.config.helper.EvenHelper;
 import com.cha.kim.wedding.web.config.xss.XssModule;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,6 +43,8 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
 
         viewResolver.registerHelper("equals", new EqualsHelper());
         viewResolver.registerHelper("if_even", new EvenHelper());
+        viewResolver.registerHelper("div_center", new EvenHelper());
+        viewResolver.registerHelper("dateFormat", StringHelpers.dateFormat);
         return viewResolver;
     }
     @Override

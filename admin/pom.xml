@@ -109,6 +109,7 @@
 
 
         <!-- Utils -->
+
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>el-impl</artifactId>
@@ -202,19 +203,6 @@
                     <mainClass>com.cha.kim.wedding.admin.AdminApplication</mainClass>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>${maven.clean.plugin.version}</version>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>monitoring</directory>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
-
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
