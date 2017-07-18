@@ -18,7 +18,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 @SpringBootApplication
 @EnableConfigurationProperties
-@EnableAutoConfiguration
 @ComponentScan(nameGenerator = FullBeanNameGenerator.class)
 @PropertySource(value = "classpath:properties/application-${spring.profiles.active}.pc-web.properties")
 @Import(CoreApplication.class)

@@ -11,7 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableWebSecurity
 public class PcWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
@@ -27,7 +26,7 @@ public class PcWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/")
                 .loginProcessingUrl("/auth/process")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/success")
                 .failureUrl("/?login=error")
                 .usernameParameter("id")
                 .passwordParameter("password")
