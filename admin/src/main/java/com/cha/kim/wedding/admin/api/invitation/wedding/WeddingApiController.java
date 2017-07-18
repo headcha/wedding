@@ -20,10 +20,8 @@ public class WeddingApiController {
     private AccountContext adminContext;
 
     @RequestMapping(method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Wedding> update(@RequestBody WeddingForm form) {
-        Wedding saved = weddingService.save(form.create(adminContext.getLoggedAccount()));
-        return ResponseEntity.ok(saved);
+    public void update(@RequestBody WeddingForm form) {
+        weddingService.save(form.create(adminContext.getLoggedAccount()));
     }
 
     @RequestMapping(method = RequestMethod.DELETE , value = "/{id}")

@@ -1,7 +1,6 @@
 package com.cha.kim.wedding.admin.api.gallery;
 
 import com.cha.kim.wedding.core.gallery.image.GalleryImageService;
-import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +20,7 @@ public class GalleryImageApiController {
 
     @RequestMapping(method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteImage(int id) throws FileUploadException, IOException {
+    public void deleteImage(int id) throws  IOException {
         galleryImageService.remove(id);
     }
 
