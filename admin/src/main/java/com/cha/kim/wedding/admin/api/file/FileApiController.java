@@ -24,8 +24,6 @@ public class FileApiController {
     @Value("${admin.image.save.path}")
     private String imageSavePath;
 
-
-
     @RequestMapping(value = "image" , method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<UploadFile> uploadImage(MultipartFile image) throws FileUploadException, IOException {
